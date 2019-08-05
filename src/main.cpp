@@ -18,8 +18,12 @@ int main(int argc, char* argv[]) {
         if(strcmp(argv[1], "-h") == 0 || strcmp(argv[1], "--help") == 0) {
             help();
             return 0;
+        } else if(strcmp(argv[1], "install") == 0) {
+            std::cout << "install!\n";
+        } else if(strcmp(argv[1], "remove") == 0) {
+            std::cout << "remove!\n";
+        } else {
+            help();
         }
-
-        std::cout << "Hello World!\n";
     }
 }
