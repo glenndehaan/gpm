@@ -39,6 +39,8 @@ int main(int argc, char* argv[]) {
             }
 
             for(int item = 2; item < argc; item++) {
+                std::cout << "\n";
+                std::cout << colorYellow << "Installing app " << (item - 1) << "/" << (argc - 2) << colorReset << "\n";
                 installPackage(argv[item]);
             }
         } else if(strcmp(argv[1], "remove") == 0) {
