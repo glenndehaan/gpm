@@ -1,4 +1,5 @@
 #include "colors/colors.h"
+#include "install/install.h"
 #include <iostream>
 
 // Define global variables
@@ -26,7 +27,20 @@ int main(int argc, char* argv[]) {
             help();
             return 0;
         } else if(strcmp(argv[1], "install") == 0) {
-            std::cout << "install!\n";
+            std::cout << "Checking registry for the following packages: ";
+            for(int item = 2; item < argc; item++) {
+                std::cout << colorGreen << argv[item] << colorReset;
+
+                if((item + 1) == argc) {
+                    std::cout << "\n";
+                } else {
+                    std::cout << ", ";
+                }
+            }
+
+            for(int item = 2; item < argc; item++) {
+                installPackage(argv[item]);
+            }
         } else if(strcmp(argv[1], "remove") == 0) {
             std::cout << "remove!\n";
         } else {

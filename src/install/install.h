@@ -1,0 +1,1 @@
+void installPackage(char* package);
