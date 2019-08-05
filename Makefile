@@ -7,3 +7,6 @@ all: gpm
 gpm:
 	mkdir -p ./bin
 	g++ -o ./bin/gpm ./src/main.cpp
+
+run:
+	./bin/gpm
