@@ -1,18 +1,9 @@
+#include "colors/colors.h"
 #include <iostream>
 
 // Define global variables
-std::string version = "v0.0.0";
-bool debug = true;
-
-// Define colors
-const std::string colorRed("\033[0;31m");
-const std::string colorGreen("\033[0;32m");
-const std::string colorYellow("\033[0;33m");
-const std::string colorBlue("\033[0;34m");
-const std::string colorMagenta("\033[0;35m");
-const std::string colorCyan("\033[0;36m");
-const std::string colorWhite("\033[0;37m");
-const std::string colorReset("\033[0m");
+const std::string version = "v0.0.0";
+const bool debug = true;
 
 // Help fallback function
 void help() {
