@@ -1,10 +1,7 @@
 #include "colors/colors.h"
 #include "install/install.h"
+#include "config/config.h"
 #include <iostream>
-
-// Define global variables
-const std::string version = "v0.0.0";
-const bool debug = true;
 
 // Help fallback function
 void help() {

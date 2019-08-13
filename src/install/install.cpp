@@ -1,11 +1,12 @@
 #include "install.h"
+#include "../config/config.h"
 #include "../colors/colors.h"
 #include <iostream>
 #include <time.h>
 
 // Help fallback function
 void installPackage(char* package) {
-    std::cout << "[" << colorGreen << package << colorReset << "]" << " Using registry: \n";
+    std::cout << "[" << colorGreen << package << colorReset << "]" << " Using registry: "<< registryConfig()[0] << " \n";
     std::cout << "[" << colorGreen << package << colorReset << "]" << " Found version: \n";
     sleep(2500);
     std::cout << "[" << colorGreen << package << colorReset << "]" << " Unpacking...\n";

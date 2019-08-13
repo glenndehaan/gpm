@@ -6,7 +6,7 @@ all: gpm
 # This rule tells make how to build gpm from main.cpp
 gpm:
 	mkdir -p ./bin
-	g++ -o ./bin/gpm ./src/main.cpp ./src/colors/colors.cpp ./src/install/install.cpp
+	g++ -o ./bin/gpm ./src/main.cpp ./src/config/config.cpp ./src/colors/colors.cpp ./src/install/install.cpp
 
 run:
 	./bin/gpm
