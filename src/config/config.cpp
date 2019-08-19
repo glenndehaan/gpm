@@ -15,7 +15,7 @@ std::deque<std::string> registryConfig() {
         std::deque<std::string> registries;
         std::string line;
         while (getline(registryFile, line)) {
-            if(line != "\n") {
+            if(line.substr(0, 1) != "" && line.substr(0, 1) != "#") {
                 registries.push_back(line);
             }
         }
