@@ -1,27 +1,24 @@
 #include "http.h"
 #include <iostream>
 #include <string>
-#include <curl/curl.h>
-
-static size_t WriteCallback(void *contents, size_t size, size_t nmemb, void *userp) {
-    ((std::string*)userp)->append((char*)contents, size * nmemb);
-    return size * nmemb;
-}
+//#include "../vendor/httplib.h"
+#include "../vendor/HTTPRequest.h"
 
 // HTTP Request to get package info
 void getPackageInfo(std::string repoBaseUrl) {
-    CURL *curl;
-    CURLcode res;
-    std::string readBuffer;
+//    httplib::Client cli("www.httpvshttps.com");
+//
+//    auto res = cli.Get("/");
+//    if (res && res->status == 200) {
+//        std::cout << res->body;
+//    } else {
+//        std::cout << "Status Code: " << res->status;
+//    }
 
-    curl = curl_easy_init();
-    if(curl) {
-        curl_easy_setopt(curl, CURLOPT_URL, repoBaseUrl.c_str());
-        curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, WriteCallback);
-        curl_easy_setopt(curl, CURLOPT_WRITEDATA, &readBuffer);
-        res = curl_easy_perform(curl);
-        curl_easy_cleanup(curl);
+    // you can pass http::InternetProtocol::V6 to Request to make an IPv6 request
+    http::Request request("http://www.httpvshttps.com");
 
-        std::cout << readBuffer << std::endl;
-    }
+    // send a get request
+    http::Response response = request.send("GET");
+    std::cout << std::string(response.body.begin(), response.body.end()) << std::endl; // print the result
 }

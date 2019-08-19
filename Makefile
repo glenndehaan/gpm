@@ -10,7 +10,7 @@ all: gpm
 # This rule tells make how to build gpm from main.cpp
 gpm:
 	mkdir -p $(BUILDDIR)
-	g++ -o $(BUILDDIR)/gpm ./src/main.cpp ./src/config/config.cpp ./src/colors/colors.cpp ./src/http/http.cpp ./src/install/install.cpp -lcurl
+	g++ -std=c++17 -o $(BUILDDIR)/gpm ./src/main.cpp ./src/config/config.cpp ./src/colors/colors.cpp ./src/http/http.cpp ./src/install/install.cpp -lcurl
 
 .PHONY: watch
 watch:
