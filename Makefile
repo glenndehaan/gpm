@@ -23,9 +23,9 @@ clean:
 .PHONY: install
 install:
 	mkdir -p $(DESTDIR)$(PREFIX_APP)/bin
-	mkdir -p $(DESTDIR)$(PREFIX_CONFIG)/gpm
+	mkdir -p $(DESTDIR)$(PREFIX_CONFIG)
 	cp $(BUILDDIR)/gpm $(DESTDIR)$(PREFIX_APP)/bin/gpm
-	cp ./config/registry.list $(DESTDIR)$(PREFIX_CONFIG)/gpm/registry.list
+	cp ./config/registry.list $(DESTDIR)$(PREFIX_CONFIG)/registry.list
 
 .PHONY: uninstall
 uninstall:
