@@ -16,6 +16,10 @@ gpm:
 watch:
 	while true; do $(MAKE) -q || $(MAKE); sleep 2; done
 
+.PHONY: clean
+clean:
+	rm -rf $(BUILDDIR)
+
 .PHONY: install
 install:
 	mkdir -p $(DESTDIR)$(PREFIX_APP)/bin
