@@ -1,6 +1,9 @@
 # PhpStorm
 .idea
 
+# Vagrant
+.vagrant
+
 # General files
 *~
 *.DS_STORE

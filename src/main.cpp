@@ -2,6 +2,7 @@
 #include "install/install.h"
 #include "config/config.h"
 #include <iostream>
+#include <string.h>
 
 // Help fallback function
 void help() {

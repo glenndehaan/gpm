@@ -1,7 +1,6 @@
 PREFIX_APP = /usr
 PREFIX_CONFIG = /etc/gpm
 BUILDDIR = ./bin
-DESTDIR = ""
 
 # This is the default target, which will be built when
 # you invoke make
@@ -27,4 +26,4 @@ install:
 .PHONY: uninstall
 uninstall:
 	rm -f $(DESTDIR)$(PREFIX_APP)/bin/gpm
-	rm -f $(DESTDIR)$(PREFIX_CONFIG)/gpm
+	rm -rf $(DESTDIR)$(PREFIX_CONFIG)
