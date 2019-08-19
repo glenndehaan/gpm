@@ -1,4 +1,5 @@
-DESTDIR = /usr
+PREFIX_APP = /usr
+PREFIX_CONFIG = /etc/gpm
 BUILDDIR = ./bin
 DESTDIR = ""
 
@@ -18,9 +19,12 @@ watch:
 
 .PHONY: install
 install:
-	mkdir -p $(DESTDIR)$(PREFIX)/bin
-	cp $(BUILDDIR)/gpm $(DESTDIR)$(PREFIX)/bin/gpm
+	mkdir -p $(DESTDIR)$(PREFIX_APP)/bin
+	mkdir -p $(DESTDIR)$(PREFIX_CONFIG)/gpm
+	cp $(BUILDDIR)/gpm $(DESTDIR)$(PREFIX_APP)/bin/gpm
+	cp ./config/registry.list $(DESTDIR)$(PREFIX_CONFIG)/gpm/registry.list
 
 .PHONY: uninstall
 uninstall:
-	rm -f $(DESTDIR)$(PREFIX)/bin/gpm
+	rm -f $(DESTDIR)$(PREFIX_APP)/bin/gpm
+	rm -f $(DESTDIR)$(PREFIX_CONFIG)/gpm
