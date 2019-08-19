@@ -1,12 +1,14 @@
 #include "install.h"
 #include "../config/config.h"
 #include "../colors/colors.h"
+#include "../http/http.h"
 #include <iostream>
 #include <time.h>
 
 // Help fallback function
 void installPackage(char* package) {
     std::deque<std::string> registries = registryConfig();
+    getPackageInfo("https://glenndehaan.com");
 
     for(int item = 0; item < registries.size(); item++) {
         if(item == 0) {
