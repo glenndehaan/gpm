@@ -8,16 +8,16 @@
 // Help fallback function
 void installPackage(char* package) {
     std::deque<std::string> registries = registryConfig();
-    getPackageInfo("https://glenndehaan.com");
 
     for(int item = 0; item < registries.size(); item++) {
-        if(item == 0) {
+        std::string version = getPackageInfo(registries[item], package);
+        if(version == "false") {
             std::cout << "[" << colorGreen << package << colorReset << "]" << " Using registry: "<< registries[item] << " \n";
             std::cout << "[" << colorGreen << package << colorReset << "]" << colorRed << " Package not found!" << colorReset << "\n\n";
-            sleep(2500);
+            sleep(1000);
         } else {
             std::cout << "[" << colorGreen << package << colorReset << "]" << " Using registry: "<< registries[item] << " \n";
-            std::cout << "[" << colorGreen << package << colorReset << "]" << " Found version: \n";
+            std::cout << "[" << colorGreen << package << colorReset << "]" << " Found version: " << version << "\n";
             sleep(2500);
             std::cout << "[" << colorGreen << package << colorReset << "]" << " Unpacking...\n";
             sleep(1000);
@@ -28,6 +28,7 @@ void installPackage(char* package) {
             std::cout << "[" << colorGreen << package << colorReset << "]" << " Cleaning up...\n";
             sleep(1000);
             std::cout << "[" << colorGreen << package << colorReset << "]" << " Installation complete!\n\n";
+            break;
         }
     }
 }
