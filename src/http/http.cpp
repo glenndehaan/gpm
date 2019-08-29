@@ -1,14 +1,14 @@
 #include "http.h"
-#include <iostream>
-#include <string>
 #include "../colors/colors.h"
 #include "../vendor/HTTPRequest.h"
 #include "../vendor/json.h"
+#include <iostream>
+#include <string>
 
 using json = nlohmann::json;
 
 // HTTP Request to get package info
-std::string getPackageInfo(std::string repoBaseUrl, std::string package) {
+json getPackageInfo(std::string repoBaseUrl, std::string package) {
     try {
         // Build URL
         std::string url = repoBaseUrl + "?package=" + package;
@@ -24,12 +24,17 @@ std::string getPackageInfo(std::string repoBaseUrl, std::string package) {
 
         // Check if result is OKE
         if(j["status"] == 200) {
-            return std::string(j["package"]["version"]);
+            j["package"]["found"] = true;
+            return j["package"];
         }
 
-        return "false";
+        j["package"]["found"] = false;
+        return j["package"];
     } catch(...) {
+        json j = {
+            {"found", false}
+        };
         std::cout << colorRed << "[ERROR] Registry Error! Invalid response!" << colorReset << "\n";
-        return "false";
+        return j;
     }
 }

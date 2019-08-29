@@ -1,7 +1,9 @@
 // http.cpp Header file
+#include "../vendor/json.h"
 #include <iostream>
 #include <string>
-#include <curl/curl.h>
+
+using json = nlohmann::json;
 
 static size_t WriteCallback(void *contents, size_t size, size_t nmemb, void *userp);
-std::string getPackageInfo(std::string repoBaseUrl, std::string package);
+json getPackageInfo(std::string repoBaseUrl, std::string package);
